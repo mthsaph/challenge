@@ -11,10 +11,10 @@ import understatapi
 import pandas as pd
 import streamlit as st
 
+client = understatapi.UnderstatClient()
+
 st.title("Understat Data for all leagues available for the 2024 season")
 st.subheader("Filter to any team/player to see all their shots taken!")
-
-client = understatapi.UnderstatClient()
 
 league_op = st.selectbox("Select a league", client.player(player = "11094").leagues, index = None)
 
