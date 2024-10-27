@@ -11,7 +11,7 @@ import understatapi
 import pandas as pd
 import streamlit as st
 
-st.title("All leagues fr")
+st.title("Understat Data for all leagues available for the 2024 season")
 st.subheader("Filter to any team/player to see all their shots taken!")
 
 client = understatapi.UnderstatClient()
@@ -19,7 +19,9 @@ client = understatapi.UnderstatClient()
 league_op = st.selectbox("Select a league", client.player(player = "11094").leagues, index=None)
 league_data = client.league(league_op).get_match_data(season = "2024")
 
-data = client.league(league = "EPL").get_team_data(season = "2024")
+team_data = client.league(league_op).get_team_data(season = "2024")
+
+team_op = st.selectbox("Select a team", league_data["team"]sort_values().unique(), index=None)
 
 pd.json_normalize(client.team(team= "Manchester_United").get_match_data(season = "2024")).head()
 
