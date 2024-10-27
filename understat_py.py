@@ -7,19 +7,9 @@ Original file is located at
     https://colab.research.google.com/drive/18mJF0AvgtkXLhpYPajlK-96tRUNx3paT
 """
 
-!pip install understatapi --quiet
-
-!pip install streamlit --quiet
-
-#!streamlit run understat.py
-
 import understatapi
 import pandas as pd
 import streamlit as st
-import os
-
-cwd = os.getcwd()
-print(cwd)
 
 client = understatapi.UnderstatClient()
 
