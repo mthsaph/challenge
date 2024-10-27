@@ -16,12 +16,12 @@ client = understatapi.UnderstatClient()
 st.title("Understat Data for all leagues available for the 2024 season")
 st.subheader("Filter to any team/player to see all their shots taken!")
 
-league_op = st.selectbox("Select a league", client.player(player = "11094").leagues, index = None)
+league_op = st.selectbox("Select a league", client.player(player = "11094").leagues, index = None, placeholder = ‘Select an Option’)
 
 league_data = client.league(str(league_op)).get_match_data(season = "2024")
 
-team_op = st.selectbox("Select a team", pd.json_normalize(league_data)["a.title"].sort_values().unique(), index = None)
+team_op = st.selectbox("Select a team", pd.json_normalize(league_data)["a.title"].sort_values().unique(), index=None)
 
 team_data = client.team(team_op).get_player_data(season = "2024")
 
-player_op = st.selectbox("Select a plyer", pd.json_normalize(team_data)["player_name"].sort_values().unique(), index = None)
+player_op = st.selectbox("Select a plyer", pd.json_normalize(team_data)["player_name"].sort_values().unique(), index=None)
