@@ -18,8 +18,8 @@ def plot_shots(df, ax, pitch):
     for x in df.to_dict(orient='records'):
         
         pitch.scatter(
-            x=float(x['X']),
-            y=float(x['Y']),
+            x=float(x['X']) * 120,
+            y=float(x['Y']) * 120,
             ax=ax,
             s = 1000 * float(x['xG']),
             color='green' if x['result'] == 'Goal' else 'white',
