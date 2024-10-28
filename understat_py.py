@@ -20,10 +20,9 @@ def plot_shots(df, ax, pitch):
             ax=ax,
             s = 1000 * float(x['xG']),
             color='green' if x['result'] == 'Goal' else 'white',
-            edgecolors='black'
-            #alpha=1 if x['result'] == 'Goal' else .5,
-            #zorder=2 if x['result'] == 'Goal' else 1,
-            #marker = "h"
+            edgecolors='black',
+            alpha=1 if x['shotType'] == 'Goal' else .5,
+            zorder=2 if x['shotType'] == 'Goal' else 1,
         )
 
 client = understatapi.UnderstatClient()
