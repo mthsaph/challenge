@@ -52,6 +52,5 @@ if league_op != None:
             df = pd.json_normalize(client.player(player = player_id).get_shot_data())
             pitch = VerticalPitch(pitch_type='statsbomb', line_zorder=2, pitch_color='#f0f0f0', line_color='black', half=True)
             fig, ax = pitch.draw(figsize=(10, 10))
-            st.pyplot(fig)
-            fig, ax = plot_shots(df, ax, pitch).draw(figsize=(10, 10))
+            plot_shots(df, ax, pitch)
             st.pyplot(fig)
