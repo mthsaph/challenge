@@ -18,7 +18,7 @@ def plot_shots(df, ax, pitch):
     for x in df.to_dict(orient='records'):
         
         pitch.scatter(
-            x=float(x['X']) * 115,
+            x=float(x['X']) * 120,
             y=float(x['Y']) * 74,
             ax=ax,
             s = 1000 * float(x['xG']),
