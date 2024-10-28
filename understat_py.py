@@ -13,7 +13,9 @@ import streamlit as st
 from mplsoccer import VerticalPitch
 
 def plot_shots(df, ax, pitch):
+    
     for x in df.to_dict(orient='records'):
+        
         pitch.scatter(
             x=float(x['X']),
             y=float(x['Y']),
@@ -24,6 +26,7 @@ def plot_shots(df, ax, pitch):
             alpha=1 if x['shotType'] == 'Goal' else .5,
             zorder=2 if x['shotType'] == 'Goal' else 1,
         )
+        
     return pitch
 
 client = understatapi.UnderstatClient()
@@ -49,5 +52,6 @@ if league_op != None:
             df = pd.json_normalize(client.player(player = player_id).get_shot_data())
             pitch = VerticalPitch(pitch_type='statsbomb', line_zorder=2, pitch_color='#f0f0f0', line_color='black', half=True)
             fig, ax = pitch.draw(figsize=(10, 10))
-            plot_shots(df, ax, pitch)
-            #st.pyplot(fig)
+            st.pyplot(fig)
+            fig, ax = plot_shots(df, ax, pitch)
+            st.pyplot(fig)
