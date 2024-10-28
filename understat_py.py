@@ -10,6 +10,7 @@ Original file is located at
 import understatapi
 import pandas as pd
 import streamlit as st
+from mplsoccer import VerticalPitch
 
 client = understatapi.UnderstatClient()
 
