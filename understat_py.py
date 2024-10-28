@@ -53,5 +53,5 @@ if league_op != None:
             pitch = VerticalPitch(pitch_type='statsbomb', line_zorder=2, pitch_color='#f0f0f0', line_color='black', half=True)
             fig, ax = pitch.draw(figsize=(10, 10))
             st.pyplot(fig)
-            fig, ax = plot_shots(df, ax, pitch)
+            fig, ax = plot_shots(df, ax, pitch).draw(figsize=(10, 10))
             st.pyplot(fig)
