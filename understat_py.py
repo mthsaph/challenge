@@ -24,6 +24,7 @@ def plot_shots(df, ax, pitch):
             alpha=1 if x['shotType'] == 'Goal' else .5,
             zorder=2 if x['shotType'] == 'Goal' else 1,
         )
+    return pitch
 
 client = understatapi.UnderstatClient()
 
@@ -49,4 +50,4 @@ if league_op != None:
             pitch = VerticalPitch(pitch_type='statsbomb', line_zorder=2, pitch_color='#f0f0f0', line_color='black', half=True)
             fig, ax = pitch.draw(figsize=(10, 10))
             plot_shots(df, ax, pitch)
-            st.pyplot(fig)
+            #st.pyplot(fig)
