@@ -18,6 +18,7 @@ def plot_shots(df, ax, pitch):
             x=float(x['X']),
             y=float(x['Y']),
             ax=ax,
+            s=1000 * x['xG'],
             color='green' if x['result'] == 'Goal' else 'white',
             edgecolors='black',
             alpha=1 if x['result'] == 'Goal' else .5,
