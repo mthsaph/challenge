@@ -42,7 +42,7 @@ league_op = st.selectbox("Select a league", client.player(player = "11094").leag
 
 season = st.selectbox("Select a season", seasons, index = None)
 
-if league_op != None:
+if league_op != None and season != None:
     
     league_data = client.league(league_op).get_match_data(season)
     team_op = st.selectbox("Select a team", pd.json_normalize(league_data)["a.title"].sort_values().unique(), index=None)
