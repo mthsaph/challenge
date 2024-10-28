@@ -36,7 +36,7 @@ client = understatapi.UnderstatClient()
 st.title("Understat Data for all leagues available for the 2024 season")
 st.subheader("Filter to any team/player to see all their shots taken!")
 
-seasons = [x for x in range(2014, 2025)]
+seasons = [str(x) for x in range(2014, 2025)]
 
 league_op = st.selectbox("Select a league", client.player(player = "11094").leagues, index = None)
 
