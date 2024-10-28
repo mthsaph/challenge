@@ -43,8 +43,8 @@ if league_op != None:
 
         if player_op != None:
             
-            player_id = team_data[team_data["player_name"] == player_op]["id"]
-            df = pd.json_normalize(client.player(player = player_id[0]).get_shot_data())
+            player_id = team_data[team_data["player_name"] == player_op]["id"][0]
+            df = pd.json_normalize(client.player(player = player_id).get_shot_data())
             pitch = VerticalPitch(pitch_type='statsbomb', line_zorder=2, pitch_color='#f0f0f0', line_color='black', half=True)
             fig, ax = pitch.draw(figsize=(10, 10))
             plot_shots(df, ax, pitch)
