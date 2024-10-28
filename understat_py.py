@@ -23,7 +23,7 @@ def plot_shots(df, ax, pitch):
             edgecolors='black',
             alpha=1 if x['result'] == 'Goal' else .5,
             zorder=2 if x['result'] == 'Goal' else 1,
-            marker = h
+            marker = "h"
         )
 
 client = understatapi.UnderstatClient()
