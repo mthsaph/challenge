@@ -49,9 +49,8 @@ if league_op != None and season != None:
 
     if team_op != None:
 
-        data = client.league(league = "EPL").get_team_data(season = "2024")
-        team_id = "71"
-        st.table(pd.json_normalize(data[team_id]["history"])[["h_a", "scored", "missed", "result", "date"]])
+        data = client.league(league = "EPL").get_match_data(season = "2024")
+        st.table(pd.json_normalize(data))
         
         team_data = pd.json_normalize(client.team(team_op).get_player_data(season))
         player_op = st.selectbox("Select a plyer", team_data["player_name"].sort_values().unique(), index=None)
