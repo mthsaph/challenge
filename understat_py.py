@@ -45,13 +45,13 @@ season = st.selectbox("Select a season", seasons, index = None)
 if league_op != None and season != None:
     
     league_data = client.league(league_op).get_match_data(season)
-    team_op = st.selectbox("Select a team", pd.json_normalize(league_data)["a.title"].sort_values().unique(), index=None)
+    norm_league_data = pd.json_normalize(league_data)
+    team_op = st.selectbox("Select a team", norm_league_data["a.title"].sort_values().unique(), index=None)
 
     if team_op != None:
-
-        data = client.league(league = "EPL").get_match_data(season = "2024")
-        data = pd.json_normalize(data)
-        st.table(data[((data["h.title"] == "Aston Villa") | (data["a.title"] == "Aston Villa")) & (data["isResult"] == True)])
+        
+        team_matches = norm_league_data[((norm_league_data["h.title"] == team_op) | (norm_league_data["a.title"] == team_op)) & (norm_league_data["isResult"] == True)]
+        st.table(team_matches)
         
         team_data = pd.json_normalize(client.team(team_op).get_player_data(season))
         player_op = st.selectbox("Select a plyer", team_data["player_name"].sort_values().unique(), index=None)
