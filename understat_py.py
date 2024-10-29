@@ -39,9 +39,8 @@ st.subheader("Filter to any team/player to see all their shots taken!")
 seasons = [str(x) + "/" + str(x + 1) for x in range(2014, 2025)]
 
 league_op = st.selectbox("Select a league", client.player(player = "11094").leagues, index = None)
-
-if league_op != None:
-    season = st.selectbox("Select a season", seasons, index = None)[0:4]
+season = st.selectbox("Select a season", seasons, index = None)
+season = season[0:4]
 
 if league_op != None and season != None:
     
