@@ -51,7 +51,7 @@ if league_op != None and season != None:
     if team_op != None:
         
         team_matches = norm_league_data[((norm_league_data["h.title"] == team_op) | (norm_league_data["a.title"] == team_op)) & (norm_league_data["isResult"] == True)]
-        st.table(team_matches)
+        st.dataframe(team_matches.style.highlight_max(axis=0))
         
         team_data = pd.json_normalize(client.team(team_op).get_player_data(season))
         player_op = st.selectbox("Select a plyer", team_data["player_name"].sort_values().unique(), index=None)
