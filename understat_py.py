@@ -33,7 +33,7 @@ def plot_shots(df, ax, pitch):
 season = "2024"
 client = understatapi.UnderstatClient()
 
-st.title("Understat Data for all leagues available for the 2014-2024 season")
+st.title("Understat Data for all leagues available for the 2014-2024 season usin the understatapi")
 st.subheader("Filter to any team/player to see all their shots taken!")
 
 seasons = [str(x) + "/" + str(x + 1) for x in range(2014, 2025)]
