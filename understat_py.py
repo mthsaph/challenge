@@ -53,7 +53,7 @@ if league_op != None and season != None:
     if team_op != None:
         
         team_matches = norm_league_data[((norm_league_data["h.title"] == team_op) | (norm_league_data["a.title"] == team_op)) & (norm_league_data["isResult"] == True)]
-        team_matches = team_matches[["datetime", "h.title", "a.title", "goals.h", "goals.a", ]].reset_index(level=None, drop=False, inplace=False, col_level=0, col_fill="")
+        team_matches = team_matches[["datetime", "h.title", "a.title", "goals.h", "goals.a", ]].reset_index(level=None, drop=False, inplace=True, col_level=0, col_fill="")
         st.table(team_matches)
 
         team_data = pd.json_normalize(client.team(team_op).get_player_data(season))
