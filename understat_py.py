@@ -30,6 +30,34 @@ def plot_shots(df, ax, pitch):
         
     return pitch
 
+def build_standings(data):
+  pts = 0
+  wins = 0
+  draws = 0
+  losses = 0
+  goals = 0
+  conceded = 0
+  L = []
+
+  for i in data:
+    for j in data[i]["history"]:
+      pts += j["pts"]
+      wins += j["wins"]
+      draws += j["draws"]
+      losses += j["loses"]
+      goals += j["scored"]
+      conceded += j["missed"]
+
+    L.append({"TEAM": data[i]["title"], "PTS": pts, "W": wins, "D": draws, "L": losses, "G": goals, "GA": conceded})
+    pts = 0
+    wins = 0
+    draws = 0
+    losses = 0
+    goals = 0
+    conceded = 0
+
+  return L
+
 season = "2024"
 client = understatapi.UnderstatClient()
 
