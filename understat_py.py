@@ -80,6 +80,11 @@ if league_op != None and season != None:
     standings = standings.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill="")
     standings.index += 1
     st.table(standings)
+
+    top_league_players = pd.json_normalize(client.league(league_op).get_player_data(season))
+    top_league_player = top_league_players[["player_name", "games",	"time",	"goals", "assists", "shots","key_passes", "yellow_cards", "red_cards", "position", "team_title", "npg"]]	
+    top_league_players.index += 1
+    st_table(top_league_players)
     
     league_data = client.league(league_op).get_match_data(season)
     norm_league_data = pd.json_normalize(league_data)
