@@ -48,7 +48,7 @@ def build_standings(data):
       goals += j["scored"]
       conceded += j["missed"]
 
-    L.append({"TEAM": data[i]["title"], "PTS": pts, "M": wins + draws + losses,"W": wins, "D": draws, "L": losses, "G": goals, "GA": conceded})
+    L.append({"TEAM": data[i]["title"], "PTS": pts, "G": wins + draws + losses,"W": wins, "D": draws, "L": losses, "Goals": goals, "GA": conceded})
     pts = 0
     wins = 0
     draws = 0
