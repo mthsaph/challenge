@@ -54,8 +54,8 @@ if league_op != None and season != None:
         
         team_matches = norm_league_data[((norm_league_data["h.title"] == team_op) | (norm_league_data["a.title"] == team_op)) & (norm_league_data["isResult"] == True)]
         team_matches = team_matches[["datetime", "h.title", "a.title", "goals.h", "goals.a", ]]
-        st.table(team_matches)
-        
+        st.table(team_matches.reset_index(level=None, drop=False, inplace=False, col_level=0, col_fill=""))
+
         team_data = pd.json_normalize(client.team(team_op).get_player_data(season))
         player_op = st.selectbox("Select a plyer", team_data["player_name"].sort_values().unique(), index=None)
 
