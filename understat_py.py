@@ -102,9 +102,11 @@ if league_op != None and season != None:
         player_op = st.selectbox("Select a plyer", team_data["player_name"].sort_values().unique(), index=None)
 
         if player_op != None:
-            
+
             player_id = team_data[team_data["player_name"] == player_op]["id"]
             player_id = player_id.iloc[0]
+            player_stats = top_league_players[top_league_players["id"] == player_id]
+            st.table(player_stats)
             df = pd.json_normalize(client.player(player = player_id).get_shot_data())
             df = df[df["season"] == season]
             pitch = VerticalPitch(pitch_type='statsbomb', line_zorder=2, pitch_color='#f0f0f0', line_color='black', half=True)
