@@ -77,7 +77,7 @@ if league_op != None and season != None:
     team_data = client.league(league_op).get_team_data(season)
     standings = build_standings(team_data)
     standings = pd.DataFrame(standings).sort_values(by = "PTS", ascending = False)
-    st.table(standings)
+    st.table(standings.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill=""))
     
     league_data = client.league(league_op).get_match_data(season)
     norm_league_data = pd.json_normalize(league_data)
