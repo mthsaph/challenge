@@ -105,7 +105,7 @@ if league_op != None and season != None:
 
             player_id = team_data[team_data["player_name"] == player_op]["id"]
             player_id = player_id.iloc[0]
-            player_stats = top_league_players[top_league_players["id"] == player_id]
+            player_stats = top_league_players[top_league_players["player_name"] == player_op]
             st.table(player_stats)
             df = pd.json_normalize(client.player(player = player_id).get_shot_data())
             df = df[df["season"] == season]
