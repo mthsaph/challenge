@@ -91,7 +91,7 @@ if league_op != None and season != None:
         team_matches = team_matches[["datetime", "h.title", "a.title", "goals.h", "goals.a"]].reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill="")
         team_matches = team_matches.rename(columns = {"datetime":"DATE AND TIME", "h.title":"HOME TEAM", "a.title":"AWAY TEAM", "goals.h":"HOME GOALS", "goals.a":"AWAY GOALS"})
         team_matches.index += 1
-        st.table(team_matches.sort_values(by = "datetime"))
+        st.table(team_matches.sort_values(by = "DATE AND TIME"))
 
         team_data = pd.json_normalize(client.team(team_op).get_player_data(season))
         player_op = st.selectbox("Select a plyer", team_data["player_name"].sort_values().unique(), index=None)
