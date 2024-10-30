@@ -48,7 +48,7 @@ def build_standings(data):
       goals += j["scored"]
       conceded += j["missed"]
 
-    L.append({"TEAM": data[i]["title"], "PTS": pts, "G": wins + draws + losses,"W": wins, "D": draws, "L": losses, "Goals": goals, "GA": conceded})
+    L.append({"TEAM": data[i]["title"], "PTS": pts, "G": wins + draws + losses,"W": wins, "D": draws, "L": losses, "GOALS": goals, "GA": conceded})
     pts = 0
     wins = 0
     draws = 0
@@ -84,6 +84,8 @@ if league_op != None and season != None:
     top_league_players = pd.json_normalize(client.league(league_op).get_player_data(season))
     top_league_players = top_league_players[["player_name", "games",	"time",	"goals", "assists", "shots", "key_passes", "yellow_cards", "red_cards", "team_title"]]	
     top_league_players.index += 1
+    top_league_players.rename(columns = {"player_name":"PLAYER", "games":"G", "time":"MIN PLAYED", "goals":"GOALS", "assists":"A", "shots":"SHOTS", 
+                                         "key_passe":"K PASSES", "yellow_cards":"Y CARDS", "red_cards":"R CARDS", "team_title":"TEAM"})
     st.table(top_league_players.head(10))
     
     league_data = client.league(league_op).get_match_data(season)
