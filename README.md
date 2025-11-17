@@ -1,7 +1,3 @@
-Aqui está uma **descrição completa e bem formatada**, no estilo usado em **README de GitHub**, explicando exatamente **o que o seu código faz**:
-
----
-
 # 📊 Understat Data Explorer – Streamlit App
 
 Este projeto é uma aplicação **Streamlit** que utiliza a biblioteca **understatapi** para explorar dados avançados de futebol (xG, chutes, estatísticas de jogadores, partidas e standings) das ligas disponíveis no **Understat**, cobrindo as temporadas **2014–2024**.
