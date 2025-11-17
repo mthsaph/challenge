@@ -119,5 +119,3 @@ Calcula a classificação da liga a partir do histórico de partidas de cada tim
 * Shotmap com todos os chutes do jogador
 
 ---
-
-Se quiser, posso criar para você um **README.md completo**, com título, badges, instruções de instalação, screenshots e exemplo de uso!
