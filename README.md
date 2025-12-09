@@ -4,6 +4,8 @@ Este projeto é uma aplicação **Streamlit** que utiliza a biblioteca **underst
 
 A ferramenta permite visualizar **tabelas, rankings, jogos**, além de **mapas de chutes (shotmaps)** desenhados com o **mplsoccer**.
 
+[Acesse o projeto!](https://understatdata.streamlit.app)
+
 ---
 
 ## 🚀 Funcionalidades
